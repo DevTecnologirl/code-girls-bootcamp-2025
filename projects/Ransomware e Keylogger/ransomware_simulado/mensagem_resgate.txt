@@ -1,0 +1,29 @@
+===========================================
+   SIMULAÇÃO EDUCACIONAL DE RANSOMWARE
+===========================================
+
+Este ambiente passou por uma criptografia CONTROLADA
+para fins de estudo e demonstração acadêmica.
+
+Nenhum dado real foi colocado em risco.
+
+Para restaurar os arquivos:
+
+1. Certifique-se de que o arquivo "chave.key" está
+   na mesma pasta do script.
+
+2. Execute o script:
+       python decrypt.py
+
+Isso irá descriptografar todos os arquivos que foram
+modificados durante a simulação.
+
+---------------------------------------------
+ATENÇÃO: Esta simulação é COMPLETAMENTE INOFENSIVA.
+Seu objetivo é apenas demonstrar como ransomwares
+reais funcionam em um ambiente seguro.
+---------------------------------------------
+
+Aluno: (seu nome)
+Projeto: Simulação de Malware Educacional
+Curso: Segurança / Python

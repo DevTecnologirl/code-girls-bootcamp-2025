@@ -1,0 +1,4 @@
+Anotações de estudo:
+- Python
+- Segurança da Informação
+- Criptografia
